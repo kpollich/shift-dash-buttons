@@ -1,0 +1,10 @@
+{
+  "name": "shift-dash-buttons",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^4.0.0",
+    "node-dash-button": "^0.6.1"
+  }
+}
