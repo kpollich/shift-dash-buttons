@@ -13,8 +13,22 @@ dash.on('detected', (id) => {
   console.log('Dash button activated with ID:', id)
 
   axios.post(process.env.SLACK_ENDPOINT, {
-    text: `${identities[id]} has signed on - hello everyone!`
+    text: getMessage(identities[id]),
+    channel: '#kyles-bot-testing'
   })
     .then(() => console.log('Successfully sent slack message'))
     .catch(error => console.error(error))
 })
+
+function getMessage (name) {
+  const messages = [
+    `${name} is in the house!`,
+    `Here's ${name}!`,
+    `Peek-a-boo! It's ${name}.`,
+    `‘Ello gov'nor! It's ${name}.`,
+    `${name} has signed on - hello everyone!`,
+    `Have no fear, ${name} is here!`
+  ];
+
+  return messages[Math.floor(Math.random() * messages.length)];
+}
