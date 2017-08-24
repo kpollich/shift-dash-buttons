@@ -20,8 +20,8 @@ dash.on('detected', (id) => {
     .catch(error => console.error(error))
 })
 
-function getMessage(name) {
-  var messasges = [
+function getMessage (name) {
+  const messages = [
     `${name} is in the house!`,
     `Here's ${name}!`,
     `Peek-a-boo! It's ${name}.`,
@@ -30,5 +30,5 @@ function getMessage(name) {
     `Have no fear, ${name} is here!`
   ];
 
-  return messasges[Math.floor(Math.random() * messasges.length)];
+  return messages[Math.floor(Math.random() * messages.length)];
 }
