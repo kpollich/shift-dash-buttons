@@ -12,8 +12,14 @@ console.log('Starting dash button script...')
 dash.on('detected', (id) => {
   console.log('Dash button activated with ID:', id)
 
+  // Anything before 12PM is considered a sign on - afterwards it's a sign out
+  const isSignOn = new Date().getHours < 12
+  const name = identities[id]
+
+  const text = isSignOn ? getMessage(name) : `${name} is heading out. Seeya later!`
+
   axios.post(process.env.SLACK_ENDPOINT, {
-    text: getMessage(identities[id]),
+    text,
     channel: '#kyles-bot-testing'
   })
     .then(() => console.log('Successfully sent slack message'))
