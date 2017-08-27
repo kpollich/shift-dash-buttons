@@ -17,7 +17,7 @@ $ cd shift-dash-buttons
 $ yarn
 ```
 
-Create a `.env` file and provide a JSON string containing MAC addresses for your dash buttons and corresponding names as well a Slack "Incoming Webhooks" endpoint.
+Create a `.env` file and provide a JSON string containing MAC addresses for your dash buttons and corresponding names as well as a Slack "Incoming Webhooks" endpoint.
 
 ```
 IDENTITIES={"68:37:e9:6a:c2:4b": "Jason"}
