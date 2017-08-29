@@ -16,21 +16,23 @@ dash.on('detected', id => {
   const isSignOn = new Date().getHours() < 12
   const name = identities[id]
 
-  const text = isSignOn
-    ? getMessage(name)
-    : `${name} is heading out. Seeya later!`
+  const text = getMessage(name, isSignOn);
 
-  axios
-    .post(process.env.SLACK_ENDPOINT, {
-      text,
-      channel: '#kyles-bot-testing'
-    })
+  axios.post(process.env.SLACK_ENDPOINT, {
+    text,
+    channel: '#kyles-bot-testing',
+    attachments: [
+      {
+        image_url: 'http://gph.is/1acXoI8'
+      }
+    ]
+  })
     .then(() => console.log('Successfully sent slack message'))
     .catch(error => console.error(error))
 })
 
-function getMessage(name) {
-  const messages = [
+function getMessage(name, isSignOn) {
+  const signOn_messages = [
     `${name} is in the house!`,
     `Here's ${name}!`,
     `Peek-a-boo! It's ${name}.`,
@@ -39,5 +41,13 @@ function getMessage(name) {
     `Have no fear, ${name} is here!`
   ]
 
-  return messages[Math.floor(Math.random() * messages.length)]
+  const signOff_messages = [
+    `${name} says: Hasta la vista...baby :gun: :sunglasses:`,
+    `${name} is peacing out :v:`,
+    `It's time for ${name} to go night night :wave:`
+  ];
+
+  return (isSignOn) 
+    ? signOn_messages[Math.floor(Math.random() * signOn_messages.length)]
+    : signOff_messages[Math.floor(Math.random() * signOff_messages.length)];
 }
