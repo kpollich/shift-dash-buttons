@@ -20,12 +20,7 @@ dash.on('detected', id => {
 
   axios.post(process.env.SLACK_ENDPOINT, {
     text,
-    channel: '#kyles-bot-testing',
-    attachments: [
-      {
-        image_url: 'http://gph.is/1acXoI8'
-      }
-    ]
+    channel: '#kyles-bot-testing'
   })
     .then(() => console.log('Successfully sent slack message'))
     .catch(error => console.error(error))
