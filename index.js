@@ -16,18 +16,19 @@ dash.on('detected', id => {
   const isSignOn = new Date().getHours() < 12
   const name = identities[id]
 
-  const text = getMessage(name, isSignOn);
+  const text = getMessage(name, isSignOn)
 
-  axios.post(process.env.SLACK_ENDPOINT, {
-    text,
-    channel: '#kyles-bot-testing'
-  })
+  axios
+    .post(process.env.SLACK_ENDPOINT, {
+      text,
+      channel: '#kyles-bot-testing'
+    })
     .then(() => console.log('Successfully sent slack message'))
     .catch(error => console.error(error))
 })
 
 function getRandomMessage(messages) {
-  messages[Math.floor(Math.random() * messages.length)];
+  messages[Math.floor(Math.random() * messages.length)]
 }
 
 function getMessage(name, isSignOn) {
@@ -44,9 +45,9 @@ function getMessage(name, isSignOn) {
     `${name} says: Hasta la vista...baby :gun: :sunglasses:`,
     `${name} is peacing out :v:`,
     `It's time for ${name} to go night night :wave:`
-  ];
+  ]
 
   return isSignOn
     ? getRandomMessage(signOnMessages)
-    : getRandomMessage(signOffMessages);
+    : getRandomMessage(signOffMessages)
 }
