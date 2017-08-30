@@ -26,8 +26,12 @@ dash.on('detected', id => {
     .catch(error => console.error(error))
 })
 
+function getRandomMessage(messages) {
+  messages[Math.floor(Math.random() * messages.length)];
+}
+
 function getMessage(name, isSignOn) {
-  const signOn_messages = [
+  const signOnMessages = [
     `${name} is in the house!`,
     `Here's ${name}!`,
     `Peek-a-boo! It's ${name}.`,
@@ -36,13 +40,13 @@ function getMessage(name, isSignOn) {
     `Have no fear, ${name} is here!`
   ]
 
-  const signOff_messages = [
+  const signOffMessages = [
     `${name} says: Hasta la vista...baby :gun: :sunglasses:`,
     `${name} is peacing out :v:`,
     `It's time for ${name} to go night night :wave:`
   ];
 
-  return (isSignOn) 
-    ? signOn_messages[Math.floor(Math.random() * signOn_messages.length)]
-    : signOff_messages[Math.floor(Math.random() * signOff_messages.length)];
+  return isSignOn
+    ? getRandomMessage(signOnMessages)
+    : getRandomMessage(signOffMessages);
 }
