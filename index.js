@@ -16,9 +16,7 @@ dash.on('detected', id => {
   const isSignOn = new Date().getHours() < 12
   const name = identities[id]
 
-  const text = isSignOn
-    ? getMessage(name)
-    : `${name} is heading out. Seeya later!`
+  const text = getMessage(name, isSignOn)
 
   axios
     .post(process.env.SLACK_ENDPOINT, {
@@ -29,8 +27,12 @@ dash.on('detected', id => {
     .catch(error => console.error(error))
 })
 
-function getMessage(name) {
-  const messages = [
+function getRandomMessage(messages) {
+  messages[Math.floor(Math.random() * messages.length)]
+}
+
+function getMessage(name, isSignOn) {
+  const signOnMessages = [
     `${name} is in the house!`,
     `Here's ${name}!`,
     `Peek-a-boo! It's ${name}.`,
@@ -39,5 +41,13 @@ function getMessage(name) {
     `Have no fear, ${name} is here!`
   ]
 
-  return messages[Math.floor(Math.random() * messages.length)]
+  const signOffMessages = [
+    `${name} says: Hasta la vista...baby :gun: :sunglasses:`,
+    `${name} is peacing out :v:`,
+    `It's time for ${name} to go night night :wave:`
+  ]
+
+  return isSignOn
+    ? getRandomMessage(signOnMessages)
+    : getRandomMessage(signOffMessages)
 }
