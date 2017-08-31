@@ -18,12 +18,10 @@
   },
   "scripts": {
     "precommit": "lint-staged",
-    "lint": "eslint *.js"
+    "lint": "eslint *.js",
+    "start": "node index.js"
   },
   "lint-staged": {
-    "*.js": [
-      "prettier --write --no-semi --single-quote",
-      "git add"
-    ]
+    "*.js": ["prettier --write --no-semi --single-quote", "git add"]
   }
 }
