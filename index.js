@@ -28,7 +28,7 @@ dash.on('detected', id => {
 })
 
 function getRandomMessage(messages) {
-  messages[Math.floor(Math.random() * messages.length)]
+  return messages[Math.floor(Math.random() * messages.length)]
 }
 
 function getMessage(name, isSignOn) {
