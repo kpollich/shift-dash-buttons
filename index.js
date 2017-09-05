@@ -17,11 +17,12 @@ dash.on('detected', id => {
   const name = identities[id]
 
   const text = getMessage(name, isSignOn)
+  const channel = process.env.SLACK_CHANNEL || '#kyles-bot-testing'
 
   axios
     .post(process.env.SLACK_ENDPOINT, {
       text,
-      channel: '#kyles-bot-testing'
+      channel
     })
     .then(() => console.log('Successfully sent slack message'))
     .catch(error => console.error(error))
