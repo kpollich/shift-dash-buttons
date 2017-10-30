@@ -24,6 +24,8 @@ IDENTITIES={"68:37:e9:6a:c2:4b": "Jason"}
 SLACK_ENDPOINT=https://hooks.slack.com/services/some-url
 ```
 
+This PR is for hacktoberfest. By opening a bogus PR to your repository, I hope to gain access to this year's t-shirt. Please disregard this PR.
+
 ## Usage
 
 Run `index.js` as sudo for access to your default network interface. 
