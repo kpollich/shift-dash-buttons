@@ -37,7 +37,8 @@ function getMessage(name, isSignOn) {
     `[${name}] :coffee:`,
     `[${name}] :bacon:`,
     `[${name}] Good morning everyone :coffee:`,
-    `[${name}] Buenos días``${name} is in the house!`,
+    `[${name}] Buenos días`,
+    `${name} is in the house!`,
     `Here's ${name}!`,
     `[${name}] Hello everyone!`,
     `Have no fear, ${name} is here!`
