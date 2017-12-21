@@ -34,18 +34,21 @@ function getRandomMessage(messages) {
 
 function getMessage(name, isSignOn) {
   const signOnMessages = [
-    `${name} is in the house!`,
+    `[${name}] :coffee:`,
+    `[${name}] :bacon:`,
+    `[${name}] Good morning everyone :coffee:`,
+    `[${name}] Buenos días``${name} is in the house!`,
     `Here's ${name}!`,
-    `Peek-a-boo! It's ${name}.`,
-    `‘Ello gov'nor! It's ${name}.`,
-    `${name} has signed on - hello everyone!`,
+    `[${name}] Hello everyone!`,
     `Have no fear, ${name} is here!`
   ]
 
   const signOffMessages = [
-    `${name} says: Hasta la vista...baby :gun: :sunglasses:`,
-    `${name} is peacing out :v:`,
-    `It's time for ${name} to go night night :wave:`
+    `[${name}] I'm out, later everyone :wave:`,
+    `[${name}] Later :crocodile:`,
+    `[${name}] I'm going to call it a night. :wave:`,
+    `[${name}] I'm headed out, have a great night everyone :v:`,
+    `${name}, out :v:`
   ]
 
   return isSignOn
